@@ -1,5 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import css from './ContactList.module.css';
 export class ContactList extends Component {
   state = {};
 
@@ -12,7 +15,7 @@ export class ContactList extends Component {
     const { contactTab, search } = this.props;
 
     return (
-      <ul>
+      <ul className={clsx(css.contactList)}>
         {contactTab
           .filter(contact =>
             contact.name.toLowerCase().includes(search.toLowerCase())
@@ -20,11 +23,11 @@ export class ContactList extends Component {
           .map(contact => {
             return (
               <>
-                <li key={contact.id} id={contact.id} name={contact.name}>
+                <li className={clsx(css.contactListItem)} key={contact.id} id={contact.id} name={contact.name}>
                   <span>
                     {contact.name}: {contact.number}
                   </span>
-                  <button id={contact.id} onClick={this.readID}>
+                  <button className={clsx(css.contactListBtn)} id={contact.id} onClick={this.readID}>
                     Delete
                   </button>
                 </li>
@@ -35,3 +38,14 @@ export class ContactList extends Component {
     );
   }
 }
+
+ContactList.propTypes = {
+  contactTab: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+      number: PropTypes.string,
+    })
+  ),
+  search: PropTypes.string,
+};

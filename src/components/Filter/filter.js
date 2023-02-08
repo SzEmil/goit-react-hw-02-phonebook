@@ -1,26 +1,34 @@
 import React from 'react';
 import { Component } from 'react';
-
+import PropTypes from 'prop-types';
+import clsx from 'clsx';
+import css from './Filter.module.css';
 export class Filter extends Component {
   state = {};
 
   changeInput = event => {
     const input = event.currentTarget.value;
 
-    this.props.onChange( input );
+    this.props.onChange(input);
   };
   render() {
     return (
       <>
-        <input
-          onChange={this.changeInput}
-          type="text"
-          name="name"
-          //   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
+        <div className={clsx(css.filter)}>
+          <label>Search contacts</label>
+          <input
+            className={clsx(css.filterInput)}
+            onChange={this.changeInput}
+            type="text"
+            name="name"
+            required
+          />
+        </div>
       </>
     );
   }
 }
+
+Filter.propTypes = {
+  input: PropTypes.string,
+};
