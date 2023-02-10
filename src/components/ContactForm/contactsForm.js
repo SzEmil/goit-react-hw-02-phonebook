@@ -5,17 +5,14 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './ContactForm.module.css';
 export class ContactForm extends Component {
-  state = {};
 
   addNewContact = event => {
     event.preventDefault();
-    const userId = nanoid();
-    let dataObj = {};
     const form = event.currentTarget;
-    const inputValue = event.currentTarget.elements.name.value;
-    const inputValuePhone = event.currentTarget.elements.number.value;
-    dataObj = {
-      id: userId,
+    const inputValue = form.name.value;
+    const inputValuePhone = form.number.value;
+    let dataObj = {
+      id: nanoid(),
       name: inputValue,
       number: inputValuePhone,
     };

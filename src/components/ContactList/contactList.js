@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './ContactList.module.css';
 export class ContactList extends Component {
-  state = {};
 
   readID = event => {
     const readElement = event.target;

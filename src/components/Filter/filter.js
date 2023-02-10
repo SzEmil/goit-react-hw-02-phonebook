@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './Filter.module.css';
 export class Filter extends Component {
-  state = {};
 
   changeInput = event => {
     const input = event.currentTarget.value;
