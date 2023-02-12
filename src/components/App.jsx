@@ -1,8 +1,8 @@
 import React from 'react';
 import { Component } from 'react';
-import { ContactForm } from './ContactForm/contactsForm';
-import { ContactList } from './ContactList/contactList';
-import { Filter } from './Filter/filter';
+import { ContactForm } from './ContactForm/ContactsForm';
+import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
 const INITIAL_STATE = {
   contacts: [

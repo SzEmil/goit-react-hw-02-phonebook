@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import css from './ContactForm.module.css';
 export class ContactForm extends Component {
-
   addNewContact = event => {
     event.preventDefault();
     const form = event.currentTarget;
